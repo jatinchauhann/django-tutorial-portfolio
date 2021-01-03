@@ -53,43 +53,16 @@
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Same Site</h1>
-        <p class="lead text-muted">Some random shit.</p>
-        <p>
-          <a href="mailto:jtnchauhan24@gmail.com" class="btn btn-primary my-2">Email Me.</a>
+        <h1 class="fw-light">Job Detail</h1>
+        <p class="lead text-muted">{{ job.summary }}
         </p>
-        <img src="{% static 'nick.jpg' %}" alt="" height=300></img>
+        <img src="{{ job.image.url }}" alt="" height=300></img>
+        <p>
+          <a href="{% url 'home' %}" class="btn btn-primary my-2">Back.</a>
+        </p>
       </div>
     </div>
   </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        
-        {% for job in jobs.all %}
-
-
-        <div class="col">
-          <a href="{% url 'detail' job.id %}">
-            <div class="card shadow-sm">
-              <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
-              <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}" alt="">
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-              </div>
-            </div>
-          </a>
-        </div>
-
-        {% endfor %}
-
-
-      </div>
-
-    </div>
-  </div>
 
 </main>
 <!--jquery-3.5.1.min.js
